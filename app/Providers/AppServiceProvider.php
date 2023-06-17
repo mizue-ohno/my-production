@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Httpsにする
         if (\App::environment(['production'])){
-            \URL::forseScheme('https');
+            \URL::forceScheme('https');
         }
     }
 }
