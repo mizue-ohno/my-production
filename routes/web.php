@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,8 +22,15 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('items')->group(function () {
-    Route::get('/', [App\Http\Controllers\ItemController::class, 'index']);
-    Route::get('/add', [App\Http\Controllers\ItemController::class, 'add']);
-    Route::post('/add', [App\Http\Controllers\ItemController::class, 'add']);
-});
+// アイテム一覧表示
+Route::get('/items', [ItemController::class, 'index'])->name('item.index');
+// アイテム登録画面表示
+Route::get('/items/create', [ItemController::class, 'create'])->name('item.create');
+// アイテム登録処理
+Route::post('/items', [ItemController::class, 'store'])->name('item.store');
+// アイテム編集画面表示
+Route::get('/items/{id}/edit', [ItemController::class, 'edit'])->name('item.edit');
+// アイテム編集更新処理
+Route::patch('/items/{id}', [ItemController::class, 'update'])->name('item.update');
+// アイテム削除処理
+Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('item.destroy');
