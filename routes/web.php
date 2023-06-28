@@ -22,6 +22,8 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+
 // アイテム一覧表示
 Route::get('/items', [ItemController::class, 'index'])->name('item.index');
 // アイテム登録画面表示
@@ -34,3 +36,20 @@ Route::get('/items/{id}/edit', [ItemController::class, 'edit'])->name('item.edit
 Route::patch('/items/{id}', [ItemController::class, 'update'])->name('item.update');
 // アイテム削除処理
 Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('item.destroy');
+
+
+
+// メモ一覧表示
+Route::get('/memos', [ItemController::class, 'index'])->name('memo.index');
+// メモ登録画面表示
+Route::get('/memos/create', [ItemController::class, 'create'])->name('memo.create');
+// メモ登録処理
+Route::post('/memos', [ItemController::class, 'store'])->name('memo.store');
+// メモ編集画面表示
+Route::get('/memos/{id}/edit', [ItemController::class, 'edit'])->name('memo.edit');
+// メモ編集更新処理
+Route::patch('/memos/{id}', [ItemController::class, 'update'])->name('memo.update');
+// メモ削除処理
+Route::delete('/memos/{id}', [ItemController::class, 'destroy'])->name('memo.destroy');
+
+
