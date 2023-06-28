@@ -25,18 +25,21 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>名前</th>
                                 <th>種別</th>
-                                <th>詳細</th>
+                                <th>色</th>
+                                <th>季節</th>
+                                <th>購入日</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($items as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
-                                    <td>{{ $item->name }}</td>
                                     <td>{{ $item->type }}</td>
-                                    <td>{{ $item->detail }}</td>
+                                    <td>{{ $item->color }}</td>
+                                    <td>{{ $item->season }}</td>
+                                    <td>{{ $item->buy_date }}</td>
+                                    <td><a href="{{ route('item.edit', ['id' => $item->id]) }}" class="btn btn-info">編集</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

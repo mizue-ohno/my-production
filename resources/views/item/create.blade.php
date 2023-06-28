@@ -20,24 +20,53 @@
             @endif
 
             <div class="card card-primary">
-                <form method="POST">
+                <form action="{{ route('item.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="name">名前</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="名前">
-                        </div>
 
                         <div class="form-group">
                             <label for="type">種別</label>
-                            <input type="number" class="form-control" id="type" name="type" placeholder="1, 2, 3, ...">
+                            <select class="form-select" type="number" id="type" name="type" aria-label="Default select example">
+                                <option selected>選択してください</option>
+                                <option value="トップス">トップス</option>
+                                <option value="パンツ">パンツ</option>
+                                <option value="スカート">スカート</option>
+                                <option value="ワンピース">ワンピース</option>
+                                <option value="小物">小物</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
                             <label for="detail">詳細</label>
                             <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
                         </div>
-                    </div>
+
+                        <div class="form-group">
+                            <label for="brand">アイテム画像</label>
+                            <input type="file" class="form-control" id="image" name="image">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="buy_date">購入日</label>
+                            <input type="date" class="form-control" id="buy_date" name="buy_date">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="color">色</label>
+                            <input type="text" class="form-control" id="color" name="color" placeholder="商品色">
+                        </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="season">季節</label>
+                            <input type="text" class="form-control" id="season" name="season" placeholder="着用シーズン">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="brand">ブランド</label>
+                            <input type="text" class="form-control" id="brand" name="brand" placeholder="ブランド">
+                        </div>
+
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">登録</button>

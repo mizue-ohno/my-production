@@ -89,7 +89,7 @@ class ItemController extends Controller
     public function edit(Request $request, $id){
         $item = Item::find($id);
         
-        return view('items.edit', compact('item'));
+        return view('item.edit', compact('item'));
     }
 
     // アイテム編集処理
