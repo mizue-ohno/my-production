@@ -10,7 +10,7 @@ class UserController extends Controller
 {
 
 
-        /**
+    /**
      * ユーザー一覧
      */
     public function index()
@@ -22,19 +22,21 @@ class UserController extends Controller
         return view('user.index', compact('users'));
     }
 
-          /**
+    /**
      * ユーザー編集
      */
 
     // ユーザー編集画面を表示
-    public function edit(Request $request, $id){
+    public function edit(Request $request, $id)
+    {
 
         $user = User::find($id);
         return view('user.edit', compact('user'));
     }
 
     // ユーザー編集処理
-    public function update(Request $request){
+    public function update(Request $request)
+    {
 
         // バリデーション
         $request->validate([
@@ -45,20 +47,19 @@ class UserController extends Controller
         // Userテーブルを更新し、ユーザーを更新登録
         $user = User::find($request->id);
         $user->update([
-            'name' => $request ->name,
-            'email' => $request ->email,
-            'is_admin' => $request ->is_admin,
+            'name' => $request->name,
+            'email' => $request->email,
+            'is_admin' => $request->is_admin,
         ]);
 
         //  ユーザー一覧に戻る
         return redirect()->route('user.index');
+    }
 
-        }
-
-        // ユーザーを削除する
-        public function destroy($id){
-            User::find($id)->delete($id);
-            return redirect()->route('user.index');
-    
-
+    // ユーザーを削除する
+    public function destroy($id)
+    {
+        User::find($id)->delete($id);
+        return redirect()->route('user.index');
+    }
 }

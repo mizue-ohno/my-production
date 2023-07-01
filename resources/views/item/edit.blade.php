@@ -32,6 +32,7 @@
             <div class="card card-primary">
                 <form action="{{ route('item.update', ['id'=> $item->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PATCH')
                     <div class="card-body">
 
                         <div class="form-group">
