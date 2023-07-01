@@ -27,14 +27,17 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    // ユーザー一覧表示
-    Route::get('/users', [UserController::class, 'index'])->name('user.index');
-    // ユーザー編集画面表示
-    Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
-    // ユーザー編集更新処理
-    Route::patch('/users/{id}', [UserController::class, 'update'])->name('user.update');
-    // ユーザー削除処理
-    Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+    Route::middleware('admin')->group(function () {
+        // ユーザー一覧表示
+        Route::get('/users', [UserController::class, 'index'])->name('user.index');
+        // ユーザー編集画面表示
+        Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+        // ユーザー編集更新処理
+        Route::patch('/users/{id}', [UserController::class, 'update'])->name('user.update');
+        // ユーザー削除処理
+        Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+    });
+
 
     // アイテム一覧表示
     Route::get('/items', [ItemController::class, 'index'])->name('item.index');
