@@ -124,6 +124,14 @@ class ItemController extends Controller
         // アイテム一覧に戻る
         return redirect()->route('item.index');
 
+    }
+
+    // アイテムを削除する
+    public function destroy($id){
+        Item::find($id)->delete($id);
+        return redirect()->route('item.index');
+    
+
     
     }
 

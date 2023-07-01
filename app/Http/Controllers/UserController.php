@@ -53,9 +53,12 @@ class UserController extends Controller
         //  ユーザー一覧に戻る
         return redirect()->route('user.index');
 
+        }
+
+        // ユーザーを削除する
+        public function destroy($id){
+            User::find($id)->delete($id);
+            return redirect()->route('user.index');
     
-
-
-    }
 
 }

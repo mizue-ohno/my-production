@@ -48,7 +48,7 @@
 
                         <div class="form-group">
                             <label for="detail">詳細</label>
-                            <input type="text" class="form-control" id="detail" name="detail" value="{{$item->detail}}">
+                            <textarea class="form-control" id="detail" name="detail">{{$item->detail}}</textarea>
                         </div>
 
                         <div class="form-group">
