@@ -12,13 +12,22 @@ class ItemController extends Controller
     /**
      * アイテム一覧
      */
-    public function index()
+    public function index(Request $request)
     {
+
+        $keyword = $request->input('keyword');
+        $query = Item::query();
+
+        if(!empty($keyword)) {
+            $query->where('color', 'LIKE', "%{$keyword}%")
+                ->orWhere('season', 'LIKE', "%{$keyword}%");
+        }
+
         // アイテム一覧をItemテーブルから取得
-        $items = Item::latest()->get();
+        $items = $query->latest()->get();
 
         // アイテム一覧を表示する
-        return view('item.index', compact('items'));
+        return view('item.index', compact('items','keyword'));
     }
 
     /**

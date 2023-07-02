@@ -48,8 +48,10 @@
 
                         <div class="form-group">
                             <label for="is_admin">管理者</label>
+                            <!-- is_adminに0を送る -->
                             <input type="hidden" name="is_admin" value="0">
 
+                            <!-- チェックボックスにチェックされたら1を送る。後に送ったほうが優先されて保存される -->
                             <input type="checkbox" {{ $user->is_admin == 1 ? 'checked' : '' }} name="is_admin" value="1" class="d-block">
                         </div>
                         </div>

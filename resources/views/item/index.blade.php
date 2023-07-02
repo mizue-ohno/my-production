@@ -7,6 +7,17 @@
 @stop
 
 @section('content')
+
+<!-- 検索 -->
+<div>
+  <form action="{{ route('item.index') }}" method="GET">
+    <input type="text" name="keyword" value="{{ $keyword }}">
+    <input type="submit" value="検索">
+  </form>
+</div>
+
+
+
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -25,7 +36,7 @@
 
                 <img src="data:image/png;base64,{{ $item->image }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">アイテムタイプ：{{ $item->type }}</h5><br>
+                    <h5 class="card-title">アイテムカテゴリー：{{ $item->type }}</h5><br>
                     <!-- ここには表示せずに、検索はできるようにしたい。 -->
                     <h7>{{ $item->color }}</h7><br> 
                     <h7>着用シーズン：{{ $item->season }}</h7><br>
