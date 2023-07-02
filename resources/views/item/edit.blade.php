@@ -64,49 +64,51 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="color">色</label>
-                    <input type="text" class="form-control" id="color" name="color" value="{{$item->color}}">
+                    <label for="color">カラー</label><br>
+                    <input type="radio" name="color" value="白">白　
+                    <input type="radio" name="color" value="黒">黒　
+                    <input type="radio" name="color" value="赤">赤
                 </div>
-            </div>
-
-            <div class="form-group">
-                <label for="type">着用シーズン</label>
-                <select class="form-select d-block" type="number" id="season" name="season" aria-label="Default select example">
-                    <option selected>選択してください</option>
-                    <option value="春" @if($item->type == "春") selected @endif>春</option>
-                    <option value="夏" @if($item->type == "夏") selected @endif>夏</option>
-                    <option value="秋" @if($item->type == "秋") selected @endif>秋</option>
-                    <option value="冬" @if($item->type == "冬") selected @endif>冬</option>
-                    <option value="通年" @if($item->type == "通年") selected @endif>通年</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="color">カラー</label><br>
-                <input type="radio" name="color" value="白">白　
-                <input type="radio" name="color" value="黒">黒　
-                <input type="radio" name="color" value="赤">赤
-            </div>
-
-            <div class="form-group">
-                <label for="type">着用シーズン</label><br>
-                <input type="radio" name="season" value="春"@if($item->type == "春") selected @endif>春　
-                <input type="radio" name="season" value="夏"@if($item->type == "夏") selected @endif>夏　
-                <input type="radio" name="season" value="秋"@if($item->type == "秋") selected @endif>秋　
-                <input type="radio" name="season" value="冬"@if($item->type == "冬") selected @endif>冬　
-                <input type="radio" name="season" value="通年">通年　
-            </div>
 
 
-            <div class="form-group">
-                <label for="brand">ブランド</label>
-                <input type="text" class="form-control" id="brand" name="brand" value="{{$item->brand}}">
-            </div>
+                <div class="form-group">
+                    <label for="type">着用シーズン</label>
+                    <select class="form-select d-block" type="number" id="season" name="season" aria-label="Default select example">
+                        <option selected>選択してください</option>
+                        <option value="春" @if($item->type == "春") selected @endif>春</option>
+                        <option value="夏" @if($item->type == "夏") selected @endif>夏</option>
+                        <option value="秋" @if($item->type == "秋") selected @endif>秋</option>
+                        <option value="冬" @if($item->type == "冬") selected @endif>冬</option>
+                        <option value="通年" @if($item->type == "通年") selected @endif>通年</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="color">カラー</label><br>
+                    <input type="radio" name="color" value="白">白　
+                    <input type="radio" name="color" value="黒">黒　
+                    <input type="radio" name="color" value="赤">赤
+                </div>
+
+                <div class="form-group">
+                    <label for="type">着用シーズン</label><br>
+                    <input type="radio" name="season" value="春" @if($item->type == "春") selected @endif>春　
+                    <input type="radio" name="season" value="夏" @if($item->type == "夏") selected @endif>夏　
+                    <input type="radio" name="season" value="秋" @if($item->type == "秋") selected @endif>秋　
+                    <input type="radio" name="season" value="冬" @if($item->type == "冬") selected @endif>冬　
+                    <input type="radio" name="season" value="通年">通年　
+                </div>
 
 
-            <div class="card-footer">
-                <button type="submit" class="btn btn-primary">更新</button>
-            </div>
+                <div class="form-group">
+                    <label for="brand">ブランド</label>
+                    <input type="text" class="form-control" id="brand" name="brand" value="{{$item->brand}}">
+                </div>
+
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">更新</button>
+                </div>
         </form>
     </div>
 </div>

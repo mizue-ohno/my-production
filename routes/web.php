@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MemoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,15 +56,15 @@ Route::middleware('auth')->group(function () {
 
 
     // メモ一覧表示
-    Route::get('/memos', [ItemController::class, 'index'])->name('memo.index');
+    Route::get('/memos', [MemoController::class, 'index'])->name('memo.index');
     // メモ登録画面表示
-    Route::get('/memos/create', [ItemController::class, 'create'])->name('memo.create');
+    Route::get('/memos/create', [MemoController::class, 'create'])->name('memo.create');
     // メモ登録処理
-    Route::post('/memos', [ItemController::class, 'store'])->name('memo.store');
+    Route::post('/memos', [MemoController::class, 'store'])->name('memo.store');
     // メモ編集画面表示
-    Route::get('/memos/{id}/edit', [ItemController::class, 'edit'])->name('memo.edit');
+    Route::get('/memos/{id}/edit', [MemoController::class, 'edit'])->name('memo.edit');
     // メモ編集更新処理
-    Route::patch('/memos/{id}', [ItemController::class, 'update'])->name('memo.update');
+    Route::patch('/memos/{id}', [MemoController::class, 'update'])->name('memo.update');
     // メモ削除処理
-    Route::delete('/memos/{id}', [ItemController::class, 'destroy'])->name('memo.destroy');
+    Route::delete('/memos/{id}', [MemoController::class, 'destroy'])->name('memo.destroy');
 });

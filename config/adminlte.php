@@ -235,6 +235,12 @@ return [
             'url'  => 'users',
             'icon' => 'fas fa-user',
         ],
+        [
+            'text' => '欲しいもの一覧',
+            'url'  => 'memos',
+            'icon' => 'fas fa-heart',
+        ],
+
 
 
         // AdminLTEデフォルト

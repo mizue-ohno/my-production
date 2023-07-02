@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Auth;
 class MemoController extends Controller
 {
     /**
-     * アイテム一覧
+     * メモ一覧
      */
     public function index()
     {
         // メモ一覧をMemoテーブルから取得
-        $memos =Memo ::latest()->get();
+        $memos = Memo ::latest()->get();
 
         // アイテム一覧を表示する
         return view('memo.index', compact('memos'));
@@ -30,20 +30,18 @@ class MemoController extends Controller
         return view('memo.create');
     }
 
-    // アイテム登録処理
+    // メモ登録処理
     public function store(Request $request)
     {
         // バリデーション
         $request->validate([
-                'name' => 'max:100',
                 'type' => 'required|max:16',
                 'detail' => 'max:500',
                 'image' =>'file | max:45 | mimes:jpeg,png,jpg,pdf',
-                'buy_date' => 'required',
                 'color' => 'required',
                 'season' => 'max:16',
                 'brand' => 'max:16',
-                'group' => 'max:16',
+                'price' => 'max:16',
 
             ]);
 
@@ -55,7 +53,6 @@ class MemoController extends Controller
             // Itemテーブルを更新アイテム登録
             Memo::create([
                 'user_id' => Auth::user()->id,
-                'name' => $request ->name,
                 'type' => $request ->type,
                 'detail' => $request ->detail,
                 'image' => $image,
@@ -63,10 +60,10 @@ class MemoController extends Controller
                 'color' => $request ->color,
                 'season' => $request ->season,
                 'brand' => $request ->brand,
-                'group' => $request ->group,
+                'price' => $request ->price,
             ]);
             
-            // アイテム一覧に戻る
+            // メモ一覧に戻る
             return redirect()->route('memo.index');
     }
 
@@ -86,15 +83,13 @@ class MemoController extends Controller
 
         // バリデーション
         $request->validate([
-            'name' => 'max:100',
             'type' => 'required|max:16',
             'detail' => 'max:500',
             'image' =>'file | max:45 | mimes:jpeg,png,jpg,pdf',
-            'buy_date' => 'required',
             'color' => 'required',
             'season' => 'max:16',
             'brand' => 'max:16',
-            'group' => 'max:16',
+            'price' => 'max:16',
 
         ]);
 
@@ -106,10 +101,9 @@ class MemoController extends Controller
             $image = base64_encode(file_get_contents($request->file('image')->getRealPath()));
         }
 
-        // Itemテーブルを更新し、アイテムを更新登録
+        // Memoテーブルを更新し、メモを更新登録
         $memo->update([
             'user_id' => Auth::user()->id,
-            'name' => $request ->name,
             'type' => $request ->type,
             'detail' => $request ->detail,
             'image' => $image,
@@ -117,15 +111,15 @@ class MemoController extends Controller
             'color' => $request ->color,
             'season' => $request ->season,
             'brand' => $request ->brand,
-            'group' => $request ->group,
-        ]);
+            'price' => $request ->price,
+    ]);
 
-        // アイテム一覧に戻る
+        // メモ一覧に戻る
         return redirect()->route('memo.index');
 
     }
 
-    // アイテムを削除する
+    // メモを削除する
     public function destroy($id){
         Memo::find($id)->delete($id);
         return redirect()->route('memo.index');
