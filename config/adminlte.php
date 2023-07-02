@@ -226,19 +226,19 @@ return [
 
     'menu' => [
         [
-            'text' => '商品一覧',
+            'text' => 'アイテム一覧',
             'url'  => 'items',
-            'icon' => 'fas fa-gamepad',
-        ],
-        [
-            'text' => 'ユーザー一覧',
-            'url'  => 'users',
-            'icon' => 'fas fa-user',
+            'icon' => 'fas fa-tshirt',
         ],
         [
             'text' => '欲しいもの一覧',
             'url'  => 'memos',
             'icon' => 'fas fa-heart',
+        ],
+        [
+            'text' => 'ユーザー一覧',
+            'url'  => 'users',
+            'icon' => 'fas fa-user',
         ],
 
 
