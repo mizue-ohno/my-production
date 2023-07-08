@@ -22,7 +22,7 @@
             <div class="card-tools">
                 <div class="input-group input-group-sm">
                     <div class="input-group-append">
-                        <a href="{{ route('item.index') }}" class="btn btn-default">アイテム一覧に戻る</a>
+                        <a href="{{ route('item.index') }}" class="btn btn-default">アイテムリストに戻る</a>
                     </div>
                 </div>
             </div>

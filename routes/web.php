@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::middleware('admin')->group(function () {
-        // ユーザー一覧表示
+        // ユーザーリスト表示
         Route::get('/users', [UserController::class, 'index'])->name('user.index');
         // ユーザー編集画面表示
         Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
@@ -40,8 +40,13 @@ Route::middleware('auth')->group(function () {
         Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('user.destroy');
     });
 
+        // マイページ
+        Route::get('/mypage', [UserController::class, 'mypage'])->name('user.mypage');
+        Route::patch('/mypage', [UserController::class, 'my_update'])->name('user.my_update');
+    
 
-    // アイテム一覧表示
+
+    // アイテムリスト表示
     Route::get('/items', [ItemController::class, 'index'])->name('item.index');
     // アイテム登録画面表示
     Route::get('/items/create', [ItemController::class, 'create'])->name('item.create');
@@ -56,7 +61,7 @@ Route::middleware('auth')->group(function () {
 
 
 
-    // メモ一覧表示
+    // メモリスト表示
     Route::get('/memos', [MemoController::class, 'index'])->name('memo.index');
     // メモ登録画面表示
     Route::get('/memos/create', [MemoController::class, 'create'])->name('memo.create');
@@ -68,4 +73,5 @@ Route::middleware('auth')->group(function () {
     Route::patch('/memos/{id}', [MemoController::class, 'update'])->name('memo.update');
     // メモ削除処理
     Route::delete('/memos/{id}', [MemoController::class, 'destroy'])->name('memo.destroy');
+
 });

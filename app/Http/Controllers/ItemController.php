@@ -10,7 +10,7 @@ use App\Models\Item;
 class ItemController extends Controller
 {
     /**
-     * アイテム一覧
+     * アイテムリスト
      */
     public function index(Request $request)
     {
@@ -23,8 +23,10 @@ class ItemController extends Controller
         $query = Item::query();
 
         if (!empty($keyword)) {
-            $query->where('color', 'LIKE', "%{$keyword}%")
-                ->orWhere('season', 'LIKE', "%{$keyword}%");
+            $query->where(function($query) use ($keyword) {
+                $query->orWhere('color', 'LIKE', "%{$keyword}%")
+                      ->orWhere('season', 'LIKE', "%{$keyword}%");
+            });
         }
 
         if (!empty($type)) {
@@ -39,10 +41,10 @@ class ItemController extends Controller
             $query->where('color', "=", $color);
         }
 
-        // アイテム一覧をItemテーブルから取得
+        // アイテムリストをItemテーブルから取得
         $items = $query->latest()->get();
 
-        // アイテム一覧を表示する
+        // アイテムリストを表示する
         return view('item.index', compact('items', 'keyword', 'type', 'season', 'color'));
     }
 
@@ -105,7 +107,7 @@ class ItemController extends Controller
 
         ]);
 
-        // アイテム一覧に戻る
+        // アイテムリストに戻る
         return redirect()->route('item.index');
     }
 
@@ -173,7 +175,7 @@ class ItemController extends Controller
             'group' => $request->group,
         ]);
 
-        // アイテム一覧に戻る
+        // アイテムリストに戻る
         return redirect()->route('item.index');
     }
 

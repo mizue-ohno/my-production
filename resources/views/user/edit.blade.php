@@ -23,7 +23,7 @@
                 <div class="card-tools">
                     <div class="input-group input-group-sm">
                         <div class="input-group-append">
-                            <a href="{{ route('user.index') }}" class="btn btn-default">ユーザー一覧に戻る</a>                            </div>
+                            <a href="{{ route('user.index') }}" class="btn btn-default">ユーザーリストに戻る</a>                            </div>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="season">メールアドレス</label>
+                            <label for="email">メールアドレス</label>
                             <input type="text" class="form-control" id="email" name="email" value="{{$user->email}}">
                         </div>
 

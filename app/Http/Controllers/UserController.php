@@ -11,14 +11,14 @@ class UserController extends Controller
 
 
     /**
-     * ユーザー一覧
+     * ユーザーリスト
      */
     public function index()
     {
-        // ユーザー一覧をUserテーブルから取得
+        // ユーザーリストをUserテーブルから取得
         $users = User::latest()->get();
 
-        // アイテム一覧を表示する
+        // アイテムリストを表示する
         return view('user.index', compact('users'));
     }
 
@@ -52,7 +52,7 @@ class UserController extends Controller
             'is_admin' => $request->is_admin,
         ]);
 
-        //  ユーザー一覧に戻る
+        //  ユーザーリストに戻る
         return redirect()->route('user.index');
     }
 
@@ -61,5 +61,23 @@ class UserController extends Controller
     {
         User::find($id)->delete($id);
         return redirect()->route('user.index');
+    }
+
+    // マイページを表示する
+    public function mypage()
+    {
+        $user = Auth::user('id');
+        return view('user.mypage',compact('user'));
+    }
+
+    // マイページの編集内容を更新する
+    public function my_update(Request $request)
+    {
+        $user = Auth::user();
+        $user = update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
     }
 }

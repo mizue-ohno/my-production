@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'ほしいもの一覧')
+@section('title', 'ほしいものリスト')
 
 @section('content_header')
-<h1>ほしいもの一覧</h1>
+<h1>ほしいものリスト</h1>
 @stop
 
 @section('content')
@@ -13,7 +13,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">ほしいもの一覧</h3>
+                <h3 class="card-title">ほしいものリスト</h3>
                 <div class="card-tools">
                     <div class="input-group input-group-sm">
                         <div class="input-group-append">

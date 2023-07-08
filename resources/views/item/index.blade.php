@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'アイテム一覧')
+@section('title', 'アイテムリスト')
 
 @section('content_header')
-<h1>{{ Auth::user()->name}}のアイテム一覧</h1>
+<h1>{{ Auth::user()->name}}のアイテムリスト</h1>
 @stop
 
 @section('content')
@@ -61,11 +61,18 @@
 
 <div class="count">{{ $items->count() }} 件ヒットしました！</div>
 
+<div class="search">
+    <div>キーワード：{{ request()->input('keyword') }}</div>
+    <div>アイテムカテゴリー：{{ request()->input('type') }} </div>
+    <div>着用シーズン：{{ request()->input('season') }} </div>
+    <div>カラー：{{ request()->input('color') }} </div>
+</div>
+
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">アイテム一覧</h3>
+                <h3 class="card-title">アイテムリスト</h3>
                 <div class="card-tools">
                     <div class="input-group input-group-sm">
                         <div class="input-group-append">

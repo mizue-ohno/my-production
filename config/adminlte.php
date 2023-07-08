@@ -226,17 +226,22 @@ return [
 
     'menu' => [
         [
-            'text' => 'アイテム一覧',
+            'text' => 'アイテムリスト',
             'url'  => 'items',
             'icon' => 'fas fa-tshirt',
         ],
         [
-            'text' => '欲しいもの一覧',
+            'text' => '欲しいものリスト',
             'url'  => 'memos',
             'icon' => 'fas fa-heart',
         ],
         [
-            'text' => 'ユーザー一覧',
+            'text' => 'MYPAGE',
+            'url'  => 'mypage',
+            'icon' => 'fas fa-smile',
+        ],
+        [
+            'text' => '登録ユーザーリスト',
             'url'  => 'users',
             'icon' => 'fas fa-user',
         ],

@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Auth;
 class MemoController extends Controller
 {
     /**
-     * メモ一覧
+     * メモリスト
      */
     public function index()
     {
-        // メモ一覧をMemoテーブルから取得
+        // メモリストをMemoテーブルから取得
         $memos = Memo ::latest()->get();
 
-        // アイテム一覧を表示する
+        // アイテムリストを表示する
         return view('memo.index', compact('memos'));
     }
 
@@ -63,7 +63,7 @@ class MemoController extends Controller
                 'price' => $request ->price,
             ]);
             
-            // メモ一覧に戻る
+            // メモリストに戻る
             return redirect()->route('memo.index');
     }
 
@@ -114,7 +114,7 @@ class MemoController extends Controller
             'price' => $request ->price,
     ]);
 
-        // メモ一覧に戻る
+        // メモリストに戻る
         return redirect()->route('memo.index');
 
     }
