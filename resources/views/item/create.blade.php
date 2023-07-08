@@ -34,6 +34,7 @@
 
                     <div class="form-group">
                         <label for="type">カテゴリー</label>
+                        <div class="text-red">※必須項目です。</div>
                         <select class="form-select d-block" type="number" id="type" name="type" aria-label="Default select example">
                             <option selected>選択してください</option>
                             <option value="トップス">トップス</option>
@@ -56,18 +57,21 @@
 
                     <div class="form-group">
                         <label for="buy_date">購入日</label>
+                        <div class="text-red">※必須項目です。</div>
                         <input type="date" class="form-control" id="buy_date" name="buy_date">
                     </div>
 
                     <div class="form-group">
                         <label for="color">カラー</label><br>
+                        <div class="text-red">※必須項目です。</div>
                         <input type="radio" name="color" value="白">白　
                         <input type="radio" name="color" value="黒">黒　
                         <input type="radio" name="color" value="赤">赤
                     </div>
 
                     <div class="form-group">
-                        <label for="type">着用シーズン</label><br>
+                        <label for="season">着用シーズン</label><br>
+                        <div class="text-red">※必須項目です。</div>
                         <input type="radio" name="season" value="春">春　
                         <input type="radio" name="season" value="夏">夏　
                         <input type="radio" name="season" value="秋">秋　

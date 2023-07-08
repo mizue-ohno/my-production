@@ -16,6 +16,10 @@ class ItemController extends Controller
     {
 
         $keyword = $request->input('keyword');
+        $type = $request->input('type');
+        $season = $request->input('season');
+        $color = $request->input('color');
+
         $query = Item::query();
 
         if(!empty($keyword)) {
@@ -23,11 +27,23 @@ class ItemController extends Controller
                 ->orWhere('season', 'LIKE', "%{$keyword}%");
         }
 
+        if(!empty($type)){
+            $query->where('type',"=",$type);
+        }
+
+        if(!empty($season)){
+            $query->where('season',"=",$season);
+        }
+
+        if(!empty($color)){
+            $query->where('color',"=",$color);
+        }
+
         // アイテム一覧をItemテーブルから取得
         $items = $query->latest()->get();
 
         // アイテム一覧を表示する
-        return view('item.index', compact('items','keyword'));
+        return view('item.index', compact('items','keyword','type','season','color'));
     }
 
     /**
@@ -45,7 +61,6 @@ class ItemController extends Controller
     {
         // バリデーション
         $request->validate([
-                'name' => 'max:100',
                 'type' => 'required|max:16',
                 'detail' => 'max:500',
                 'image' =>'file | max:45 | mimes:jpeg,png,jpg,pdf',

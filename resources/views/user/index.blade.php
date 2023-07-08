@@ -11,7 +11,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">id</th>
+      <th scope="col">ID</th>
       <th scope="col">名前</th>
       <th scope="col">メールアドレス</th>
       <th scope="col">管理者</th>
@@ -26,7 +26,7 @@
       <th scope="row">{{ $user->id }}</th>
       <td>{{ $user->name }}</td>
       <td>{{ $user->email }}</td>
-      <td>{{ $user->is_admin }}</td>
+      <td>{{ $user->is_admin == 0 ? '一般' : '管理者' }}</td>
       <td>{{ $user->created_at }}</td>
       <td>{{ $user->updated_at }}</td>
       <td><a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-info">編集</a></td>
