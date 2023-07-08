@@ -27,6 +27,7 @@
 
                     <div class="form-group">
                         <label for="type">種別</label>
+                        <div class="text-red">※必須項目です。</div>
                         <select class="form-select" type="number" id="type" name="type" aria-label="Default select example">
                             <option selected>選択してください</option>
                             <option value="トップス" @if($memo->type == "トップス") selected @endif>トップス</option>
@@ -49,12 +50,14 @@
 
                     <div class="form-group">
                         <label for="color">色</label>
+                        <div class="text-red">※必須項目です。</div>
                         <input type="text" class="form-control" id="color" name="color" value="{{$memo->color}}">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="type">着用シーズン</label>
+                    <div class="text-red">※必須項目です。</div>
                     <select class="form-select d-block" type="number" id="season" name="season" aria-label="Default select example">
                         <option selected>選択してください</option>
                         <option value="春" @if($item->type == "春") selected @endif>春</option>
