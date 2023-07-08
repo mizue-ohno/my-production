@@ -15,8 +15,8 @@
         <input type="text" name="keyword" value="{{ $keyword }}">
       </div>
       <div>
-        <input type="radio" name="in_admin" value="0">一般　
-        <input type="radio" name="in_admin" value="1">管理者　
+        <input type="radio" name="is_admin" value="0">一般　
+        <input type="radio" name="is_admin" value="1">管理者　
         <button type="button" onclick="radioDeselection()">選択解除</button>
       </div>
     </lavel>

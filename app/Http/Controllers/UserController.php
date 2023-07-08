@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->input('keyword');
-        $in_admin = $request->input('in_admin');
+        $is_admin = $request->input('is_admin');
         $query = User::query();
 
         if (!empty($keyword)) {
@@ -24,8 +24,8 @@ class UserController extends Controller
                 ->orWhere('email', 'LIKE', "%{$keyword}%");
         };
 
-        if (!empty($in_admin)) {
-            $query->where('in_admin', '=', $in_admin);
+        if (!empty($is_admin)) {
+            $query->where('is_admin', '=', $is_admin);
         };
 
 

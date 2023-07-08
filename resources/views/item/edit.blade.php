@@ -56,6 +56,14 @@
 
                 <div class="form-group">
                     <label for="brand">アイテム画像</label>
+                    <!-- 画像を表示 -->
+                    <div>
+                        @if(!empty($item -> image))
+                        <img src="data:image/png;base64,{{ $item->image }}" alt="image" style="width: 30%; height: auto;" />
+                        @endif
+                    </div>
+
+
                     <input type="file" class="form-control" id="image" name="image">
                 </div>
 
@@ -67,25 +75,20 @@
                 <div class="form-group">
                     <label for="color">カラー</label><br>
                     <div class="text-red">※必須項目です。</div>
-                    <input type="radio" name="color" value="白">白　
-                    <input type="radio" name="color" value="黒">黒　
-                    <input type="radio" name="color" value="赤">赤
+                    <input type="radio" name="color" value="白" {{ $item->color == "白" ? 'checked' : '' }}>白　
+                    <input type="radio" name="color" value="黒" {{ $item->color == "黒" ? 'checked' : '' }}>黒　
+                    <input type="radio" name="color" value="赤" {{ $item->color == "赤" ? 'checked' : '' }}>赤
                 </div>
-
 
                 <div class="form-group">
-                    <label for="type">着用シーズン</label>
+                    <label for="season">着用シーズン</label><br>
                     <div class="text-red">※必須項目です。</div>
-                    <select class="form-select d-block" type="number" id="season" name="season" aria-label="Default select example">
-                        <option selected>選択してください</option>
-                        <option value="春" @if($item->type == "春") selected @endif>春</option>
-                        <option value="夏" @if($item->type == "夏") selected @endif>夏</option>
-                        <option value="秋" @if($item->type == "秋") selected @endif>秋</option>
-                        <option value="冬" @if($item->type == "冬") selected @endif>冬</option>
-                        <option value="通年" @if($item->type == "通年") selected @endif>通年</option>
-                    </select>
+                    <input type="radio" name="season" value="春" {{ $item->season == "春" ? 'checked' : '' }}>春　
+                    <input type="radio" name="season" value="夏" {{ $item->season == "夏" ? 'checked' : '' }}>夏　
+                    <input type="radio" name="season" value="秋" {{ $item->season == "秋" ? 'checked' : '' }}>秋　
+                    <input type="radio" name="season" value="冬" {{ $item->season == "冬" ? 'checked' : '' }}>冬　
+                    <input type="radio" name="season" value="通年" {{ $item->season == "通年" ? 'checked' : '' }}>通年　
                 </div>
-
 
 
                 <div class="form-group">
@@ -99,27 +102,26 @@
                 </div>
         </form>
     </div>
-</div>
+
+    <!-- 削除ボタン -->
+    <form action="{{ route('item.destroy', ['id'=> $item->id]) }}" method="POST" onsubmit="return submitCheck()">
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
+        <div class="card-footer">
+            <button type="submit" id="delete-item-{{ $item->id }}" class="btn btn-primary">削除</button>
+        </div>
+    </form>
 </div>
 
-<!-- 削除ボタン -->
-<form action="{{ route('item.destroy', ['id'=> $item->id]) }}" method="POST" onsubmit="return submitCheck()">
-    {{ csrf_field() }}
-    {{ method_field('DELETE') }}
-    <div class="card-footer">
-        <button type="submit" id="delete-item-{{ $item->id }}" class="btn btn-primary">削除</button>
-    </div>
-</form>
 <script>
-  function submitCheck(){
-    if(window.confirm('削除しますか？')) {
-      return true; // 「OK」なら送信
+    function submitCheck() {
+        if (window.confirm('削除しますか？')) {
+            return true; // 「OK」なら送信
+        } else {
+            window.alert('キャンセル');
+            return false; // 「キャンセル」なら送信しない
+        }
     }
-    else {
-      window.alert('キャンセル');
-      return false; // 「キャンセル」なら送信しない
-    }
-  }
 </script>
 
 

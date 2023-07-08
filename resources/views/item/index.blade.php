@@ -9,9 +9,9 @@
 @section('content')
 
 <!-- 検索 -->
-<div>
+<div class="item_search">
     <form action="{{ route('item.index') }}" method="GET">
-        <lavel for="">キーワード
+        <label for="">キーワード
             <div>
                 <input type="text" name="keyword" value="{{ $keyword }}">
             </div>
