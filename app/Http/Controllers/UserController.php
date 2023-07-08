@@ -13,13 +13,26 @@ class UserController extends Controller
     /**
      * ユーザーリスト
      */
-    public function index()
+    public function index(Request $request)
     {
-        // ユーザーリストをUserテーブルから取得
-        $users = User::latest()->get();
+        $keyword = $request->input('keyword');
+        $in_admin = $request->input('in_admin');
+        $query = User::query();
+
+        if (!empty($keyword)) {
+            $query->orWhere('name', 'LIKE', "%{$keyword}%")
+                ->orWhere('email', 'LIKE', "%{$keyword}%");
+        };
+
+        if (!empty($in_admin)) {
+            $query->where('in_admin', '=', $in_admin);
+        };
+
+
+        $users = $query->latest()->get();
 
         // アイテムリストを表示する
-        return view('user.index', compact('users'));
+        return view('user.index', compact('users', 'keyword'));
     }
 
     /**
@@ -67,7 +80,7 @@ class UserController extends Controller
     public function mypage()
     {
         $user = Auth::user('id');
-        return view('user.mypage',compact('user'));
+        return view('user.mypage', compact('user'));
     }
 
     // マイページの編集内容を更新する
@@ -78,6 +91,5 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
         ]);
-
     }
 }

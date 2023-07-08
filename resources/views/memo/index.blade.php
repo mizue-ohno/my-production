@@ -17,7 +17,7 @@
                 <div class="card-tools">
                     <div class="input-group input-group-sm">
                         <div class="input-group-append">
-                            <a href="{{ route('memo.create') }}" class="btn btn-default">ほしいもの登録</a>
+                            <a href="{{ route('memo.create') }}" class="btn btn-default">新規ほしいもの登録</a>
                         </div>
                     </div>
                 </div>

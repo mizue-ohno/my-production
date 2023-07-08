@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'メモ登録')
+@section('title', 'ほしいもの登録')
 
 @section('content_header')
-<h1>メモ登録</h1>
+<h1>ほしいもの登録</h1>
 @stop
 
 @section('content')
@@ -39,7 +39,7 @@
 
                     <div class="form-group">
                         <label for="detail">詳細</label>
-                        <textarea class="form-control" id="detail" name="detail" placeholder="メモ説明"></textarea>
+                        <textarea class="form-control" id="detail" name="detail" placeholder="迷ったポイント、着たいシチュエーションetc."></textarea>
                     </div>
 
                     <div class="form-group">
@@ -68,12 +68,12 @@
 
                     <div class="form-group">
                         <label for="brand">ブランド</label>
-                        <input type="text" class="form-control" id="brand" name="brand" placeholder="ブランド">
+                        <input type="text" class="form-control" id="brand" name="brand" placeholder="ブランド、売っていた場所、webサイトetc.">
                     </div>
 
                     <div class="form-group">
                         <label for="brand">価格</label>
-                        <input type="text" class="form-control" id="price" name="price" placeholder="価格">
+                        <input type="text" class="form-control" id="price" name="price">
                     </div>
 
                     <div class="card-footer">

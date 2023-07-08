@@ -76,7 +76,7 @@
                 <div class="card-tools">
                     <div class="input-group input-group-sm">
                         <div class="input-group-append">
-                            <a href="{{ route('item.create') }}" class="btn btn-default">アイテム登録</a>
+                            <a href="{{ route('item.create') }}" class="btn btn-default">新規アイテム登録</a>
                         </div>
                     </div>
                 </div>

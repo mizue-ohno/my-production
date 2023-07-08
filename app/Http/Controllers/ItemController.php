@@ -81,6 +81,7 @@ class ItemController extends Controller
                 'image.mines' => 'このファイル形式では登録できません。',
                 'buy_date.required' => '日付を選択してください。',
                 'color.required' => 'カラーを選択してください。',
+                'season.required' =>'着用シーズンを選択してください。',
                 'brand.max' => 'ブランド名は16文字以内で入力してください。',
                 'group.max' => 'グループは16文字以内で入力してください。'
 
@@ -147,6 +148,7 @@ class ItemController extends Controller
                 'image.mines' => 'このファイル形式では登録できません。',
                 'buy_date.required' => '日付を選択してください。',
                 'color.required' => 'カラーを選択してください。',
+                'season.required' =>'着用シーズンを選択してください。',
                 'brand.max' => 'ブランド名は16文字以内で入力してください。',
                 'group.max' => 'グループは16文字以内で入力してください。'
 
