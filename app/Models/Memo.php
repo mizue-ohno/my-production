@@ -13,12 +13,12 @@ class Memo extends Model
     'type',
     'detail',
     'image',
-    'buy_date',
     'color',
     'season',
     'brand',
-    'group',
     'price',
+    'created_at',
+    'updated_at'
     ];
 
 }

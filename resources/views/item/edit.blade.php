@@ -103,13 +103,24 @@
 </div>
 
 <!-- 削除ボタン -->
-<form action="{{ route('item.destroy', ['id'=> $item->id]) }}" method="POST">
+<form action="{{ route('item.destroy', ['id'=> $item->id]) }}" method="POST" onsubmit="return submitCheck()">
     {{ csrf_field() }}
     {{ method_field('DELETE') }}
     <div class="card-footer">
         <button type="submit" id="delete-item-{{ $item->id }}" class="btn btn-primary">削除</button>
     </div>
 </form>
+<script>
+  function submitCheck(){
+    if(window.confirm('削除しますか？')) {
+      return true; // 「OK」なら送信
+    }
+    else {
+      window.alert('キャンセル');
+      return false; // 「キャンセル」なら送信しない
+    }
+  }
+</script>
 
 
 @stop
