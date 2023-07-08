@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -24,7 +25,7 @@ class UserController extends Controller
                 ->orWhere('email', 'LIKE', "%{$keyword}%");
         };
 
-        if (!empty($is_admin)) {
+        if (isset($is_admin)) {
             $query->where('is_admin', '=', $is_admin);
         };
 
@@ -87,9 +88,16 @@ class UserController extends Controller
     public function my_update(Request $request)
     {
         $user = Auth::user();
-        $user = update([
-            'name' => $request->name,
-            'email' => $request->email,
-        ]);
+        // Auth::user()の場合はupdate関数使えないので、
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        if($request->has('password')){
+            $user->password= Hash::make($request->password);
+        }
+
+
+        $user->save();
+        return back();
     }
 }

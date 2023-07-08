@@ -8,17 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Memo extends Model
 {
     protected $fillable = [
-
-    'name',
-    'type',
-    'detail',
-    'image',
-    'color',
-    'season',
-    'brand',
-    'price',
-    'created_at',
-    'updated_at'
+        'user_id',
+        'name',
+        'type',
+        'detail',
+        'image',
+        'color',
+        'season',
+        'brand',
+        'price',
+        'created_at',
+        'updated_at'
     ];
-
 }

@@ -80,4 +80,5 @@
 @stop
 
 @section('js')
+
 @stop

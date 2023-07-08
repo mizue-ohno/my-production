@@ -244,6 +244,7 @@ return [
             'text' => '登録ユーザーリスト',
             'url'  => 'users',
             'icon' => 'fas fa-user',
+            'can' =>'admin',
         ],
 
 

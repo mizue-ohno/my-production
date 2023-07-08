@@ -64,4 +64,13 @@
 @stop
 
 @section('js')
+
+<script>
+    function radioDeselection() {
+  for (const element of document.getElementsByName('is_admin')) {
+    element.checked = false;
+  }
+}
+</script>
+
 @stop
