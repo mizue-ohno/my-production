@@ -6,6 +6,7 @@
 <h1>{{ Auth::user()->name}}のアイテムリスト</h1>
 @stop
 
+
 @section('content')
 
 <!-- 検索 -->
@@ -85,7 +86,12 @@
                 <div class="row">
                     @foreach ($items as $item)
                     <div class="card col-sm-3 col-xs-12">
+                    @if ($item->image)
+
                         <img src="data:image/png;base64,{{ $item->image }}" class="card-img-top" alt="...">
+                        @else
+                        <img src="{{asset('/image/noimage.png')}}" class="card-img-top" alt="...">
+                        @endif
                         <div class="card-body">
                             <h5 class="card-title">アイテムカテゴリー：{{ $item->type }}</h5><br>
                             <!-- ここには表示せずに、検索はできるようにしたい。 -->
@@ -105,6 +111,6 @@
 
     @section('css')
     @stop
-
+    
     @section('js')
     @stop
