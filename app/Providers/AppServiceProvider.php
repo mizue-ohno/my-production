@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
         // Httpsにする
         if (\App::environment(['production']) || \App::environment(['develop'])){
             \URL::forceScheme('https');
+            $this->app['request']->server->set('HTTPS','on');
         }
     }
 }
