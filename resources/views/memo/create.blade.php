@@ -25,7 +25,7 @@
                 <div class="card-body">
 
                     <div class="form-group">
-                        <label for="type">種別</label>
+                        <label for="type">カテゴリー</label>
                         <div class="text-red">※必須項目です。</div>
                         <select class="form-select" type="number" id="type" name="type" aria-label="Default select example">
                             <option selected>選択してください</option>
@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="brand">メモ画像</label>
+                        <label for="brand">画像</label>
                         <input type="file" class="form-control" id="image" name="image">
                     </div>
 

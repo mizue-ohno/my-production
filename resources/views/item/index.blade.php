@@ -93,7 +93,7 @@
 
                         <img src="data:image/png;base64,{{ $item->image }}" class="card-img-top" alt="...">
                         @else
-                        <img src="{{asset('/image/noimage.png')}}" class="card-img-top" alt="...">
+                        <img src="{{asset('/image/noimage.png')}}" class="card-img-top"alt="...">
                         @endif
                         <div class="card-body">
                             <h5 class="card-title">カテゴリー：{{ $item->type }}</h5><br>
