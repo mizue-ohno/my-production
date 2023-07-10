@@ -70,7 +70,6 @@
                         <input type="radio" name="color" value="青">青　
                         <input type="radio" name="color" value="黄">黄　
                         <input type="radio" name="color" value="緑">緑　
-
                     </div>
 
                     <div class="form-group">
