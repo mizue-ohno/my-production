@@ -11,8 +11,18 @@ class MemoController extends Controller
     /**
      * メモリスト
      */
-    public function index()
+    public function index(Request $request)
     {
+        $keyword = $request->input('keyword');
+        $query = Memo::query();
+        if (!empty($keyword)) {
+                $query->orWhere('color', 'LIKE', "%{$keyword}%")
+                      ->orWhere('season', 'LIKE', "%{$keyword}%")
+                      ->orWhere('detail', 'LIKE', "%{$keyword}%")
+                      ->orWhere('brand', 'LIKE', "%{$keyword}%")
+                      ->orWhere('type', 'LIKE', "%{$keyword}%");
+            };
+
         // メモリストをMemoテーブルから取得
         $memos = Memo ::latest()->get();
 

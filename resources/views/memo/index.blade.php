@@ -8,6 +8,18 @@
 
 @section('content')
 
+<!-- 検索 -->
+<div class="memo_search">
+    <form action="{{ route('memo.index') }}" method="GET">
+        <label for="">キーワード
+            <div>
+                <input type="text" name="keyword" value="{{ $keyword }}">
+            </div>
+        </lavel>
+        <input type="submit" value="検索">
+    </form>
+</div>
+
 
 <div class="row">
     <div class="col-12">
