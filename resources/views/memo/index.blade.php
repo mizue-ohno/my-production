@@ -29,9 +29,7 @@
                     <div class="card col-sm-3 col-xs-12">
                         <img src="data:image/png;base64,{{ $memo->image }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">アイテムカテゴリー：{{ $memo->type }}</h5><br>
-                            <!-- ここには表示せずに、検索はできるようにしたい。 -->
-                            <h7>{{ $memo->color }}</h7><br>
+                            <h5 class="card-title">カテゴリー：{{ $memo->type }}</h5><br>
                             <h7>着用シーズン：{{ $memo->season }}</h7><br>
                             <h7>価格：{{ $memo->price }}</h7><br>
                             <p class="card-text">{{ $memo->detail }}</p><br>

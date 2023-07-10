@@ -17,7 +17,7 @@
                 <input type="text" name="keyword" value="{{ $keyword }}">
             </div>
         </lavel>
-        <label for="">アイテムカテゴリー
+        <label for="">カテゴリー
             <div>
                 <select class="form-select" name="type" aria-label="Default select example">
                     <option value="">すべて</option>
@@ -50,6 +50,9 @@
                     <option value="白">白</option>
                     <option value="黒">黒</option>
                     <option value="赤">赤</option>
+                    <option value="青">青</option>
+                    <option value="黄">黄</option>
+                    <option value="緑">緑</option>
                 </select>
             </div>
         </label>
@@ -64,7 +67,7 @@
 
 <div class="search">
     <div>キーワード：{{ request()->input('keyword') }}</div>
-    <div>アイテムカテゴリー：{{ request()->input('type') }} </div>
+    <div>カテゴリー：{{ request()->input('type') }} </div>
     <div>着用シーズン：{{ request()->input('season') }} </div>
     <div>カラー：{{ request()->input('color') }} </div>
 </div>
@@ -93,9 +96,7 @@
                         <img src="{{asset('/image/noimage.png')}}" class="card-img-top" alt="...">
                         @endif
                         <div class="card-body">
-                            <h5 class="card-title">アイテムカテゴリー：{{ $item->type }}</h5><br>
-                            <!-- ここには表示せずに、検索はできるようにしたい。 -->
-                            <h7>{{ $item->color }}</h7><br>
+                            <h5 class="card-title">カテゴリー：{{ $item->type }}</h5><br>
                             <h7>着用シーズン：{{ $item->season }}</h7><br>
                             <h7>購入日：{{ $item->buy_date }}</h7><br>
                             <p class="card-text">{{ $item->detail }}</p><br>
