@@ -27,7 +27,7 @@ class MemoController extends Controller
         $memos = Memo ::latest()->get();
 
         // アイテムリストを表示する
-        return view('memo.index', compact('memos'));
+        return view('memo.index', compact('memos' ,'keyword'));
     }
 
     /**
