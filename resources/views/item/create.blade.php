@@ -66,7 +66,11 @@
                         <div class="text-red">※必須項目です。</div>
                         <input type="radio" name="color" value="白">白　
                         <input type="radio" name="color" value="黒">黒　
-                        <input type="radio" name="color" value="赤">赤
+                        <input type="radio" name="color" value="赤">赤　
+                        <input type="radio" name="color" value="青">青　
+                        <input type="radio" name="color" value="黄">黄　
+                        <input type="radio" name="color" value="緑">緑　
+
                     </div>
 
                     <div class="form-group">
