@@ -27,7 +27,7 @@ class MemoController extends Controller
             });
 
             // メモリストをMemoテーブルから取得
-            $memos = Memo::latest()->get();
+            $memos = $query->latest()->get();
 
             // アイテムリストを表示する
             return view('memo.index', compact('memos', 'keyword'));
