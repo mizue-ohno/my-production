@@ -14,14 +14,17 @@ class MemoController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->input('keyword');
+
         $query = Memo::query();
+
         if (!empty($keyword)) {
-                $query->Where('color', 'LIKE', "%{$keyword}%")
+            $query->where(function ($query) use ($keyword) {
+                $query->orWhere('color', 'LIKE', "%{$keyword}%")
                     ->orWhere('season', 'LIKE', "%{$keyword}%")
                     ->orWhere('detail', 'LIKE', "%{$keyword}%")
                     ->orWhere('brand', 'LIKE', "%{$keyword}%")
                     ->orWhere('type', 'LIKE', "%{$keyword}%");
-            };
+            });
 
             // メモリストをMemoテーブルから取得
             $memos = Memo::latest()->get();
@@ -29,7 +32,8 @@ class MemoController extends Controller
             // アイテムリストを表示する
             return view('memo.index', compact('memos', 'keyword'));
         }
-    
+    }
+
 
     /**
      * メモの新規登録
