@@ -16,13 +16,12 @@ class MemoController extends Controller
         $keyword = $request->input('keyword');
         $query = Memo::query();
         if (!empty($keyword)) {
-            $query->where(function ($query) use ($keyword) {
-                $query->orWhere('color', 'LIKE', "%{$keyword}%")
+                $query->Where('color', 'LIKE', "%{$keyword}%")
                     ->orWhere('season', 'LIKE', "%{$keyword}%")
                     ->orWhere('detail', 'LIKE', "%{$keyword}%")
                     ->orWhere('brand', 'LIKE', "%{$keyword}%")
                     ->orWhere('type', 'LIKE', "%{$keyword}%");
-            });
+            };
 
             // メモリストをMemoテーブルから取得
             $memos = Memo::latest()->get();
