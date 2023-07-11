@@ -16,19 +16,20 @@ class MemoController extends Controller
         $keyword = $request->input('keyword');
         $query = Memo::query();
         if (!empty($keyword)) {
-                $query->where(function($query) use ($keyword) {
+            $query->where(function ($query) use ($keyword) {
                 $query->orWhere('color', 'LIKE', "%{$keyword}%")
-                      ->orWhere('season', 'LIKE', "%{$keyword}%")
-                      ->orWhere('detail', 'LIKE', "%{$keyword}%")
-                      ->orWhere('brand', 'LIKE', "%{$keyword}%")
-                      ->orWhere('type', 'LIKE', "%{$keyword}%");
+                    ->orWhere('season', 'LIKE', "%{$keyword}%")
+                    ->orWhere('detail', 'LIKE', "%{$keyword}%")
+                    ->orWhere('brand', 'LIKE', "%{$keyword}%")
+                    ->orWhere('type', 'LIKE', "%{$keyword}%");
             });
 
-        // メモリストをMemoテーブルから取得
-        $memos = Memo ::latest()->get();
+            // メモリストをMemoテーブルから取得
+            $memos = Memo::latest()->get();
 
-        // アイテムリストを表示する
-        return view('memo.index', compact('memos' ,'keyword'));
+            // アイテムリストを表示する
+            return view('memo.index', compact('memos', 'keyword'));
+        }
     }
 
     /**
@@ -46,57 +47,59 @@ class MemoController extends Controller
     {
         // バリデーション
         $request->validate([
-                'type' => 'required|max:16',
-                'detail' => 'max:500',
-                'image' =>'file | max:45 | mimes:jpeg,png,jpg,pdf',
-                'color' => 'required',
-                'season' => 'max:16',
-                'brand' => 'max:16',
-                'price' => 'max:16',
+            'type' => 'required|max:16',
+            'detail' => 'max:500',
+            'image' => 'file | max:45 | mimes:jpeg,png,jpg,pdf',
+            'color' => 'required',
+            'season' => 'max:16',
+            'brand' => 'max:16',
+            'price' => 'max:16',
 
-            ]);
+        ]);
 
         $image = null;
         if ($request->file('image')) {
             $image = base64_encode(file_get_contents($request->file('image')->getRealPath()));
         }
-    
-            // Itemテーブルを更新アイテム登録
-            Memo::create([
-                'user_id' => Auth::user()->id,
-                'type' => $request ->type,
-                'detail' => $request ->detail,
-                'image' => $image,
-                'buy_date' => $request ->buy_date,
-                'color' => $request ->color,
-                'season' => $request ->season,
-                'brand' => $request ->brand,
-                'price' => $request ->price,
-            ]);
-            
-            // メモリストに戻る
-            return redirect()->route('memo.index');
+
+        // Itemテーブルを更新アイテム登録
+        Memo::create([
+            'user_id' => Auth::user()->id,
+            'type' => $request->type,
+            'detail' => $request->detail,
+            'image' => $image,
+            'buy_date' => $request->buy_date,
+            'color' => $request->color,
+            'season' => $request->season,
+            'brand' => $request->brand,
+            'price' => $request->price,
+        ]);
+
+        // メモリストに戻る
+        return redirect()->route('memo.index');
     }
 
-      /**
+    /**
      * メモ編集
      */
 
     // メモ編集画面を表示
-    public function edit(Request $request, $id){
+    public function edit(Request $request, $id)
+    {
         $item = Memo::find($id);
-        
+
         return view('memo.edit', compact('memo'));
     }
 
     // アイテム編集処理
-    public function update(Request $request){
+    public function update(Request $request)
+    {
 
         // バリデーション
         $request->validate([
             'type' => 'required|max:16',
             'detail' => 'max:500',
-            'image' =>'file | max:45 | mimes:jpeg,png,jpg,pdf',
+            'image' => 'file | max:45 | mimes:jpeg,png,jpg,pdf',
             'color' => 'required',
             'season' => 'max:16',
             'brand' => 'max:16',
@@ -115,30 +118,24 @@ class MemoController extends Controller
         // Memoテーブルを更新し、メモを更新登録
         $memo->update([
             'user_id' => Auth::user()->id,
-            'type' => $request ->type,
-            'detail' => $request ->detail,
+            'type' => $request->type,
+            'detail' => $request->detail,
             'image' => $image,
-            'buy_date' => $request ->buy_date,
-            'color' => $request ->color,
-            'season' => $request ->season,
-            'brand' => $request ->brand,
-            'price' => $request ->price,
-    ]);
+            'buy_date' => $request->buy_date,
+            'color' => $request->color,
+            'season' => $request->season,
+            'brand' => $request->brand,
+            'price' => $request->price,
+        ]);
 
         // メモリストに戻る
         return redirect()->route('memo.index');
-
     }
 
     // メモを削除する
-    public function destroy($id){
+    public function destroy($id)
+    {
         Memo::find($id)->delete($id);
         return redirect()->route('memo.index');
-    
-
-    
     }
-
-
 }
-
