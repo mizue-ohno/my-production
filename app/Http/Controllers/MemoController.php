@@ -25,13 +25,13 @@ class MemoController extends Controller
                     ->orWhere('brand', 'LIKE', "%{$keyword}%")
                     ->orWhere('type', 'LIKE', "%{$keyword}%");
             });
-
-            // メモリストをMemoテーブルから取得
-            $memos = $query->latest()->get();
-
-            // アイテムリストを表示する
-            return view('memo.index', compact('memos', 'keyword'));
         }
+
+        // メモリストをMemoテーブルから取得
+        $memos = $query->latest()->get();
+
+        // アイテムリストを表示する
+        return view('memo.index', compact('memos', 'keyword'));
     }
 
 
