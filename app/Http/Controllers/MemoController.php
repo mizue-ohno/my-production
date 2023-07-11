@@ -29,7 +29,7 @@ class MemoController extends Controller
             // アイテムリストを表示する
             return view('memo.index', compact('memos', 'keyword'));
         }
-    }
+    
 
     /**
      * メモの新規登録
