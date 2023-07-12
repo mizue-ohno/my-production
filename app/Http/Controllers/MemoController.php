@@ -89,7 +89,7 @@ class MemoController extends Controller
     // メモ編集画面を表示
     public function edit(Request $request, $id)
     {
-        $item = Memo::find($id);
+        $memo = Memo::find($id);
 
         return view('memo.edit', compact('memo'));
     }
