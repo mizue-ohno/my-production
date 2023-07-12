@@ -20,7 +20,7 @@
         @endif
 
         <div class="card card-primary">
-            <form action="{{ route('memo.update') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('memo.update', ['id'=> $memo->id] ) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <div class="card-body">
