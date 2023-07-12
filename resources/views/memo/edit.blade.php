@@ -67,7 +67,7 @@
                     <select class="form-select d-block" type="number" id="season" name="season" aria-label="Default select example">
                         <option selected>選択してください</option>
                         <option value="春" @if($memo->type == "春") selected @endif>春</option>
-                        <option value="夏" @if($memp->type == "夏") selected @endif>夏</option>
+                        <option value="夏" @if($memo->type == "夏") selected @endif>夏</option>
                         <option value="秋" @if($memo->type == "秋") selected @endif>秋</option>
                         <option value="冬" @if($memo->type == "冬") selected @endif>冬</option>
                         <option value="通年" @if($memo->type == "通年") selected @endif>通年</option>
