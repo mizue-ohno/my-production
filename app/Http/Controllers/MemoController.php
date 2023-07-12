@@ -49,16 +49,30 @@ class MemoController extends Controller
     public function store(Request $request)
     {
         // バリデーション
-        $request->validate([
-            'type' => 'required|max:16',
-            'detail' => 'max:500',
-            'image' => 'file | max:45 | mimes:jpeg,png,jpg,pdf',
-            'color' => 'required',
-            'season' => 'max:16',
-            'brand' => 'max:16',
-            'price' => 'max:16',
+        $request->validate(
+            [
+                'type' => 'required|max:16',
+                'detail' => 'max:500',
+                'image' => 'file | max:45 | mimes:jpeg,png,jpg,pdf',
+                'color' => 'required',
+                'season' => 'max:16',
+                'brand' => 'max:16',
+                'price' => 'max:16',
 
-        ]);
+            ],
+            [
+                'type.required' => 'カテゴリーを選択してください。',
+                'detail.max' => '詳細は500文字以内で入力してください。',
+                'image.max' => '画像ファイルは45KB以下にしてください。',
+                'image.mines' => 'このファイル形式では登録できません。',
+                'color.required' => 'カラーを選択してください。',
+                'season.required' => '着用シーズンを選択してください。',
+                'brand.max' => 'ブランド名は16文字以内で入力してください。',
+                'price.max' => '価格は16文字以内で入力してください。',
+                'group.max' => 'グループは16文字以内で入力してください。'
+
+            ]
+        );
 
         $image = null;
         if ($request->file('image')) {
@@ -108,7 +122,20 @@ class MemoController extends Controller
             'brand' => 'max:16',
             'price' => 'max:16',
 
-        ]);
+        ],
+        [
+            'type.required' => 'カテゴリーを選択してください。',
+            'detail.max' => '詳細は500文字以内で入力してください。',
+            'image.max' => '画像ファイルは45KB以下にしてください。',
+            'image.mines' => 'このファイル形式では登録できません。',
+            'color.required' => 'カラーを選択してください。',
+            'season.required' => '着用シーズンを選択してください。',
+            'brand.max' => 'ブランド名は16文字以内で入力してください。',
+            'price.max' => '価格は16文字以内で入力してください。',
+            'group.max' => 'グループは16文字以内で入力してください。'
+
+        ]
+);
 
         $memo = Memo::find($request->id);
         $image = $memo->image;
