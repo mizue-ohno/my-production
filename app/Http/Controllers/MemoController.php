@@ -55,9 +55,9 @@ class MemoController extends Controller
                 'detail' => 'max:500',
                 'image' => 'file | max:45 | mimes:jpeg,png,jpg,pdf',
                 'color' => 'required',
-                'season' => 'max:16',
+                'season' => 'required|max:16',
                 'brand' => 'max:16',
-                'price' => 'max:16|alpha_num',
+                'price' => 'nullable|integer|min:0',
 
             ],
             [
@@ -68,9 +68,8 @@ class MemoController extends Controller
                 'color.required' => 'カラーを選択してください。',
                 'season.required' => '着用シーズンを選択してください。',
                 'brand.max' => 'ブランド名は16文字以内で入力してください。',
-                'price.max' => '価格は16文字以内で入力してください。',
-                'price.alpha_num' => '価格は半角数字で入力してください。',
-                'group.max' => 'グループは16文字以内で入力してください。'
+                'price.integer' => '価格は整数で入力してください。',
+                'price.min' => '価格は0以上の整数で入力してください。',
 
             ]
         );

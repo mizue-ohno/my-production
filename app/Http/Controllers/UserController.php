@@ -32,7 +32,7 @@ class UserController extends Controller
 
         $users = $query->latest()->get();
 
-        // アイテムリストを表示する
+        // ユーザーリストを表示する
         return view('user.index', compact('users', 'keyword'));
     }
 
@@ -57,14 +57,12 @@ class UserController extends Controller
             [
                 'name' => 'max:100 |required',
                 'email' => 'required',
-                'password' => 'min:8'
 
             ],
             [
                 'name.required' => '名前を入力してください。',
                 'name.max' => '名前は100文字以内で入力してください。',
                 'email.required' => 'メールアドレスを入力してください。',
-                'password.min' => 'パスワードは8文字以上で入力してください。'
             ]
         );
 

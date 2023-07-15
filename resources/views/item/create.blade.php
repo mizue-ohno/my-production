@@ -75,11 +75,11 @@
                     <div class="form-group">
                         <label for="season">着用シーズン</label><br>
                         <div class="text-red">※必須項目です。</div>
-                        <input type="radio" name="season" value="春" {{ old('color','春') == '春' ? 'checked' : '' }}>春　
-                        <input type="radio" name="season" value="夏" {{ old('color','夏') == '夏' ? 'checked' : '' }}>夏　
-                        <input type="radio" name="season" value="秋" {{ old('color','秋') == '秋' ? 'checked' : '' }}>秋　
-                        <input type="radio" name="season" value="冬" {{ old('color','冬') == '冬' ? 'checked' : '' }}>冬　
-                        <input type="radio" name="season" value="通年" {{ old('color','通年') == '通年' ? 'checked' : '' }}>通年　
+                        <input type="radio" name="season" value="春" {{ old('season','春') == '春' ? 'checked' : '' }}>春　
+                        <input type="radio" name="season" value="夏" {{ old('season','夏') == '夏' ? 'checked' : '' }}>夏　
+                        <input type="radio" name="season" value="秋" {{ old('season','秋') == '秋' ? 'checked' : '' }}>秋　
+                        <input type="radio" name="season" value="冬" {{ old('season','冬') == '冬' ? 'checked' : '' }}>冬　
+                        <input type="radio" name="season" value="通年" {{ old('season','通年') == '通年' ? 'checked' : '' }}>通年　
                     </div>
 
 
