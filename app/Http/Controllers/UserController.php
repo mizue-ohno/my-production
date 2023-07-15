@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -49,24 +50,8 @@ class UserController extends Controller
     }
 
     // ユーザー編集処理
-    public function update(Request $request)
+    public function update(UserFormRequest $request)
     {
-
-        // バリデーション
-        $request->validate(
-            [
-                'name' => 'max:100 |required',
-                'email' => 'required',
-
-            ],
-            [
-                'name.required' => '名前を入力してください。',
-                'name.max' => '名前は100文字以内で入力してください。',
-                'email.required' => 'メールアドレスを入力してください。',
-            ]
-        );
-
-
         // Userテーブルを更新し、ユーザーを更新登録
         $user = User::find($request->id);
         $user->update([
@@ -94,24 +79,8 @@ class UserController extends Controller
     }
 
     // マイページの編集内容を更新する
-    public function my_update(Request $request)
+    public function my_update(UserFormRequest $request)
     {
-
-        // バリデーション
-        $request->validate(
-            [
-                'name' => 'max:100 |required',
-                'email' => 'required',
-                'password' => 'min:8'
-
-            ],
-            [
-                'name.required' => '名前を入力してください。',
-                'name.max' => '名前は100文字以内で入力してください。',
-                'email.required' => 'メールアドレスを入力してください。',
-                'password.min' => 'パスワードは8文字以上で入力してください。'
-            ]
-        );
 
         $user = Auth::user();
         // Auth::user()の場合はupdate関数使えないので、
