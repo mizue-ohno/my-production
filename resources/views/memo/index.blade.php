@@ -15,8 +15,8 @@
             <div>
                 <input type="text" name="keyword" value="{{ $keyword }}">
             </div>
-        </lavel>
-        <input type="submit" value="検索">
+            </lavel>
+            <input type="submit" value="検索">
     </form>
 </div>
 
@@ -39,7 +39,13 @@
                 <div class="row">
                     @foreach ($memos as $memo)
                     <div class="card col-sm-3 col-xs-12">
+
+                        @if ($memo->image)
                         <img src="data:image/png;base64,{{ $memo->image }}" class="card-img-top" alt="...">
+                        @else
+                        <img src="{{asset('/image/noimage.png')}}" class="card-img-top" alt="...">
+                        @endif
+
                         <div class="card-body">
                             <h5 class="card-title">カテゴリー：{{ $memo->type }}</h5><br>
                             <h7>着用シーズン：{{ $memo->season }}</h7><br>
