@@ -54,7 +54,8 @@ class UserController extends Controller
 
         // バリデーション
         $request->validate([
-            'name' => 'max:100',
+            'name' => 'max:100 |required',
+            'email' => 'required'
         ]);
 
 
@@ -87,13 +88,30 @@ class UserController extends Controller
     // マイページの編集内容を更新する
     public function my_update(Request $request)
     {
+
+        // バリデーション
+        $request->validate(
+            [
+                'name' => 'max:100 |required',
+                'email' => 'required',
+                'password' => 'min:8'
+
+            ],
+            [
+                'name.required' => '名前を入力してください。',
+                'name.max' => '名前は100文字以内で入力してください。',
+                'email.required' => 'メールアドレスを入力してください。',
+                'password.min' => 'パスワードは8文字以上で入力してください。'
+            ]
+        );
+
         $user = Auth::user();
         // Auth::user()の場合はupdate関数使えないので、
         $user->name = $request->name;
         $user->email = $request->email;
 
-        if($request->has('password')){
-            $user->password= Hash::make($request->password);
+        if ($request->has('password')) {
+            $user->password = Hash::make($request->password);
         }
 
 

@@ -57,7 +57,7 @@ class MemoController extends Controller
                 'color' => 'required',
                 'season' => 'max:16',
                 'brand' => 'max:16',
-                'price' => 'max:16',
+                'price' => 'max:16 | alpha_num',
 
             ],
             [
@@ -69,6 +69,7 @@ class MemoController extends Controller
                 'season.required' => '着用シーズンを選択してください。',
                 'brand.max' => 'ブランド名は16文字以内で入力してください。',
                 'price.max' => '価格は16文字以内で入力してください。',
+                'price.alpha_num' => '価格は半角数字で入力してください。',
                 'group.max' => 'グループは16文字以内で入力してください。'
 
             ]
