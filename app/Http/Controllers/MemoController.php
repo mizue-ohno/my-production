@@ -57,7 +57,7 @@ class MemoController extends Controller
                 'color' => 'required',
                 'season' => 'max:16',
                 'brand' => 'max:16',
-                'price' => 'max:16 | alpha_num',
+                'price' => 'max:16|alpha_num',
 
             ],
             [

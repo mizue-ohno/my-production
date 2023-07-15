@@ -26,7 +26,7 @@
                 <div class="card-body">
 
                     <div class="form-group">
-                        <label for="type">種別</label>
+                        <label for="type">カテゴリー</label>
                         <div class="text-red">※必須項目です。</div>
                         <select class="form-select" type="number" id="type" name="type" aria-label="Default select example">
                             <option selected>選択してください</option>
@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="brand">アイテム画像</label>
+                        <label for="image">アイテム画像</label>
                         <input type="file" class="form-control" id="image" name="image">
                     </div>
 
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="type">着用シーズン</label>
+                    <label for="season">着用シーズン</label>
                     <div class="text-red">※必須項目です。</div>
                     <select class="form-select d-block" type="number" id="season" name="season" aria-label="Default select example">
                         <option selected>選択してください</option>
@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="brand">価格</label>
+                    <label for="price">価格</label>
                     <input type="text" class="form-control" id="price" name="price" value="{{$memo->price}}">
                 </div>
 
