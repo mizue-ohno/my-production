@@ -81,7 +81,7 @@
 
                 <div class="form-group">
                     <label for="price">価格</label>
-                    <input type="text" class="form-control" id="price" name="price" value="{{$memo->price}}">
+                    <input type="number" class="form-control" id="price" name="price" value="{{$memo->price}}">
                 </div>
 
                 <div class="card-footer">
