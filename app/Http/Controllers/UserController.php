@@ -53,10 +53,20 @@ class UserController extends Controller
     {
 
         // バリデーション
-        $request->validate([
-            'name' => 'max:100 |required',
-            'email' => 'required'
-        ]);
+        $request->validate(
+            [
+                'name' => 'max:100 |required',
+                'email' => 'required',
+                'password' => 'min:8'
+
+            ],
+            [
+                'name.required' => '名前を入力してください。',
+                'name.max' => '名前は100文字以内で入力してください。',
+                'email.required' => 'メールアドレスを入力してください。',
+                'password.min' => 'パスワードは8文字以上で入力してください。'
+            ]
+        );
 
 
         // Userテーブルを更新し、ユーザーを更新登録
