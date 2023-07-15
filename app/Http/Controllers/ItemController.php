@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Http\Requests\ItemFormRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
@@ -59,34 +59,8 @@ class ItemController extends Controller
     }
 
     // アイテム登録処理
-    public function store(Request $request)
+    public function store(ItemFormRequest $request)
     {
-        // バリデーション
-        $request->validate(
-            [
-                'type' => 'required',
-                'detail' => 'max:500',
-                'image' => 'file | max:45 | mimes:jpeg,png,jpg,pdf',
-                'buy_date' => 'required',
-                'color' => 'required',
-                'season' => 'required',
-                'brand' => 'max:16',
-                'group' => 'max:16',
-
-            ],
-            [
-                'type.required' => 'カテゴリーを選択してください。',
-                'detail.max' => '詳細は500文字以内で入力してください。',
-                'image.max' => '画像ファイルは45KB以下にしてください。',
-                'image.mines' => 'このファイル形式では登録できません。',
-                'buy_date.required' => '日付を選択してください。',
-                'color.required' => 'カラーを選択してください。',
-                'season.required' =>'着用シーズンを選択してください。',
-                'brand.max' => 'ブランド名は16文字以内で入力してください。',
-                'group.max' => 'グループは16文字以内で入力してください。'
-
-            ]
-        );
 
         $image = null;
         if ($request->file('image')) {
@@ -125,35 +99,8 @@ class ItemController extends Controller
     }
 
     // アイテム編集処理
-    public function update(Request $request)
+    public function update(ItemFormRequest $request)
     {
-
-        // バリデーション
-        $request->validate(
-            [
-                'type' => 'required',
-                'detail' => 'max:500',
-                'image' => 'file | max:45 | mimes:jpeg,png,jpg,pdf',
-                'buy_date' => 'required',
-                'color' => 'required',
-                'season' => 'required',
-                'brand' => 'max:16',
-                'group' => 'max:16',
-
-            ],
-            [
-                'type.required' => 'カテゴリーを選択してください。',
-                'detail.max' => '詳細は500文字以内で入力してください。',
-                'image.max' => '画像ファイルは45KB以下にしてください。',
-                'image.mines' => 'このファイル形式では登録できません。',
-                'buy_date.required' => '日付を選択してください。',
-                'color.required' => 'カラーを選択してください。',
-                'season.required' =>'着用シーズンを選択してください。',
-                'brand.max' => 'ブランド名は16文字以内で入力してください。',
-                'group.max' => 'グループは16文字以内で入力してください。'
-
-            ]
-        );
 
         $item = Item::find($request->id);
         $image = $item->image;
