@@ -25,7 +25,9 @@ class ItemController extends Controller
         if (!empty($keyword)) {
             $query->where(function($query) use ($keyword) {
                 $query->orWhere('color', 'LIKE', "%{$keyword}%")
-                      ->orWhere('season', 'LIKE', "%{$keyword}%");
+                      ->orWhere('season', 'LIKE', "%{$keyword}%")
+                      ->orWhere('type', 'LIKE', "%{$keyword}%")
+                      ->orWhere('detail', 'LIKE', "%{$keyword}%");
             });
         }
 
