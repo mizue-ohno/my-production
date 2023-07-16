@@ -3,7 +3,7 @@
 @section('title', 'アイテムリスト')
 
 @section('content_header')
-<h1>{{ Auth::user()->name}}のアイテムリスト</h1>
+<h1>アイテムリスト</h1>
 @stop
 
 
