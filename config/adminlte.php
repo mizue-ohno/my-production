@@ -250,11 +250,13 @@ return [
             'text' => '(管理)アイテムリスト',
             'url'  => 'items/admin',
             'icon' => 'fas fa-tshirt',
+            'can' =>'admin',
         ],
         [
             'text' => '(管理)欲しいものリスト',
             'url'  => 'memos/admin',
             'icon' => 'fas fa-heart',
+            'can' =>'admin',
         ],
 
 
