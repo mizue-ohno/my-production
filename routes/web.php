@@ -3,6 +3,8 @@
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MemoController;
+use App\Http\Controllers\ItemAdminController;
+use App\Http\Controllers\MemoAdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -55,17 +57,17 @@ Route::middleware('auth')->group(function () {
 
         // 管理者はすべてのメモリストを観覧できる
         // メモリスト表示
-        Route::get('/memos/admin', [MemoAddminController::class, 'index'])->name('memo_ad.index');
+        Route::get('/memos/admin', [MemoAdminController::class, 'index'])->name('memo_ad.index');
         // メモ登録画面表示
-        Route::get('/memos/create/admin', [MemoAddminController::class, 'create'])->name('memo_ad.create');
+        Route::get('/memos/create/admin', [MemoAdminController::class, 'create'])->name('memo_ad.create');
         // メモ登録処理
-        Route::post('/memos/admin', [MemoAddminController::class, 'store'])->name('memo_ad.store');
+        Route::post('/memos/admin', [MemoAdminController::class, 'store'])->name('memo_ad.store');
         // メモ編集画面表示
-        Route::get('/memos/{id}/edit/admin', [MemoAddminController::class, 'edit'])->name('memo_ad.edit');
+        Route::get('/memos/{id}/edit/admin', [MemoAdminController::class, 'edit'])->name('memo_ad.edit');
         // メモ編集更新処理
-        Route::patch('/memos/{id}/admin', [MemoAddminController::class, 'update'])->name('memo_ad.update');
+        Route::patch('/memos/{id}/admin', [MemoAdminController::class, 'update'])->name('memo_ad.update');
         // メモ削除処理
-        Route::delete('/memos/{id}/admin', [MemoAddminController::class, 'destroy'])->name('memo_ad.destroy');
+        Route::delete('/memos/{id}/admin', [MemoAdminController::class, 'destroy'])->name('memo_ad.destroy');
     });
 
     // マイページ
