@@ -45,15 +45,15 @@ Route::middleware('auth')->group(function () {
         // アイテムリスト表示
         Route::get('/items/admin', [ItemAdminController::class, 'index'])->name('item_ad.index');
         // アイテム登録画面表示
-        Route::get('/items/create/admin', [temAdminController::class, 'create'])->name('item_ad.create');
+        Route::get('/items/create/admin', [ItemAdminController::class, 'create'])->name('item_ad.create');
         // アイテム登録処理
-        Route::post('/items/admin', [temAdminController::class, 'store'])->name('item_ad.store');
+        Route::post('/items/admin', [ItemAdminController::class, 'store'])->name('item_ad.store');
         // アイテム編集画面表示
-        Route::get('/items/{id}/edit/admin', [temAdminController::class, 'edit'])->name('item_ad.edit');
+        Route::get('/items/{id}/edit/admin', [ItemAdminController::class, 'edit'])->name('item_ad.edit');
         // アイテム編集更新処理
-        Route::patch('/items/{id}/admin', [temAdminController::class, 'update'])->name('item_ad.update');
+        Route::patch('/items/{id}/admin', [ItemAdminController::class, 'update'])->name('item_ad.update');
         // アイテム削除処理
-        Route::delete('/items/{id}/admin', [temAdminController::class, 'destroy'])->name('item_ad.destroy');
+        Route::delete('/items/{id}/admin', [ItemAdminController::class, 'destroy'])->name('item_ad.destroy');
 
         // 管理者はすべてのメモリストを観覧できる
         // メモリスト表示
