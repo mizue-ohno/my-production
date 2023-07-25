@@ -246,6 +246,16 @@ return [
             'icon' => 'fas fa-user',
             'can' =>'admin',
         ],
+        [
+            'text' => '(管理)アイテムリスト',
+            'url'  => 'items/admin',
+            'icon' => 'fas fa-tshirt',
+        ],
+        [
+            'text' => '(管理)欲しいものリスト',
+            'url'  => 'memos/admin',
+            'icon' => 'fas fa-heart',
+        ],
 
 
 
