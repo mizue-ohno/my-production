@@ -6,6 +6,7 @@ use App\Http\Requests\ItemFormRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
+use App\Models\User;
 
 class ItemController extends Controller
 {
@@ -43,8 +44,8 @@ class ItemController extends Controller
             $query->where('color', "=", $color);
         }
 
-        // アイテムリストをItemテーブルから取得
-        $items = $query->latest()->get();
+        // アイテムリストをItemテーブルから取得（ログインユーザーが登録したアイテムのみ表示）
+        $items = $query->where('user_id', "=" , 4)->latest()->get();
 
         // アイテムリストを表示する
         return view('item.index', compact('items', 'keyword', 'type', 'season', 'color'));
