@@ -14,6 +14,8 @@ class MemoController extends Controller
      */
     public function index(Request $request)
     {
+        // ログインしているユーザー情報を取得
+        $user = Auth::user();
         $keyword = $request->input('keyword');
 
         $query = Memo::query();
@@ -29,10 +31,10 @@ class MemoController extends Controller
         }
 
         // メモリストをMemoテーブルから取得
-        $memos = $query->latest()->get();
+        $memos = $query->where('user_id', "=" , $user->user_id)->latest()->get();
 
-        // アイテムリストを表示する
-        return view('memo.index', compact('memos', 'keyword'));
+        // メモリストを表示する（ログインしているユーザーが登録したもののみ）
+        return view('memo.index', compact('memos', 'keyword' ,'user'));
     }
 
 
