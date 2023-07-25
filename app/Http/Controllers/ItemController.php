@@ -6,7 +6,6 @@ use App\Http\Requests\ItemFormRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
-use App\Models\User;
 
 class ItemController extends Controller
 {
@@ -17,7 +16,7 @@ class ItemController extends Controller
     {
         // ログインユーザーの情報を取得
         $user = Auth::user();
-        
+
         $keyword = $request->input('keyword');
         $type = $request->input('type');
         $season = $request->input('season');
