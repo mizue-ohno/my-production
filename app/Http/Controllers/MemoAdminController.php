@@ -29,7 +29,7 @@ class MemoAdminController extends Controller
         $memos = $query->latest()->get();
 
         // メモリストを表示する（すべて）
-        return view('memo.index', compact('memos', 'keyword'));
+        return view('memo_ad.index', compact('memos', 'keyword'));
     }
 
 
@@ -40,7 +40,7 @@ class MemoAdminController extends Controller
     //  メモ登録画面を表示
     public function create()
     {
-        return view('memo.create');
+        return view('memo_ad.create');
     }
 
     // メモ登録処理
@@ -78,7 +78,7 @@ class MemoAdminController extends Controller
     {
         $memo = Memo::find($id);
 
-        return view('memo.edit', compact('memo'));
+        return view('memo_ad.edit', compact('memo'));
     }
 
     // アイテム編集処理

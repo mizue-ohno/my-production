@@ -48,7 +48,7 @@ class ItemAdminController extends Controller
             $items = $query->latest()->get();
     
             // アイテムリストを表示する
-            return view('item.index', compact('items', 'keyword', 'type', 'season', 'color' ));
+            return view('item_ad.index', compact('items', 'keyword', 'type', 'season', 'color' ));
         }
     
         /**
@@ -58,7 +58,7 @@ class ItemAdminController extends Controller
         //  アイテム登録画面を表示
         public function create()
         {
-            return view('item.create');
+            return view('item_ad.create');
         }
     
         // アイテム登録処理
@@ -98,7 +98,7 @@ class ItemAdminController extends Controller
         {
             $item = Item::find($id);
     
-            return view('item.edit', compact('item'));
+            return view('item_ad.edit', compact('item'));
         }
     
         // アイテム編集処理
