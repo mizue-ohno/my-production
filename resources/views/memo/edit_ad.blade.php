@@ -84,6 +84,7 @@
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">更新</button>
                     </div>
+                </div>
             </form>
         </div>
     </div>
