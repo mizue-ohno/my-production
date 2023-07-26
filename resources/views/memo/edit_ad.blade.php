@@ -64,11 +64,11 @@
                     <div class="form-group">
                         <label for="season">着用シーズン</label><br>
                         <div class="text-red">※必須項目です。</div>
-                        <input type="radio" name="season" value="春" {{ old('season') == '春' ? 'checked' : '' }}>春　
-                        <input type="radio" name="season" value="夏" {{ old('season') == '夏' ? 'checked' : '' }}>夏　
-                        <input type="radio" name="season" value="秋" {{ old('season') == '秋' ? 'checked' : '' }}>秋　
-                        <input type="radio" name="season" value="冬" {{ old('season') == '冬' ? 'checked' : '' }}>冬　
-                        <input type="radio" name="season" value="通年" {{ old('season') == '通年' ? 'checked' : '' }}>通年　
+                        <input type="radio" name="season" value="春" {{ $memo->season == "春" ? 'checked' : '' }}>春　
+                        <input type="radio" name="season" value="夏" {{ $memo->season == "夏" ? 'checked' : '' }}>夏　
+                        <input type="radio" name="season" value="秋" {{ $memo->season == "秋" ? 'checked' : '' }}>秋　
+                        <input type="radio" name="season" value="冬" {{ $memo->season == "冬" ? 'checked' : '' }}>冬　
+                        <input type="radio" name="season" value="通年" {{ $memo->season == "通年" ? 'checked' : '' }}>通年　
                     </div>
 
                     <div class="form-group">
