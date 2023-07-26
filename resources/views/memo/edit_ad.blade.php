@@ -59,31 +59,31 @@
                         <input type="radio" name="color" value="緑" {{ $memo->color == "緑" ? 'checked' : '' }}>緑　
 
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="season">着用シーズン</label><br>
-                    <div class="text-red">※必須項目です。</div>
-                    <input type="radio" name="season" value="春" {{ old('season') == '春' ? 'checked' : '' }}>春　
-                    <input type="radio" name="season" value="夏" {{ old('season') == '夏' ? 'checked' : '' }}>夏　
-                    <input type="radio" name="season" value="秋" {{ old('season') == '秋' ? 'checked' : '' }}>秋　
-                    <input type="radio" name="season" value="冬" {{ old('season') == '冬' ? 'checked' : '' }}>冬　
-                    <input type="radio" name="season" value="通年" {{ old('season') == '通年' ? 'checked' : '' }}>通年　
-                </div>
 
-                <div class="form-group">
-                    <label for="brand">ブランド</label>
-                    <input type="text" class="form-control" id="brand" name="brand" value="{{$memo->brand}}">
-                </div>
+                    <div class="form-group">
+                        <label for="season">着用シーズン</label><br>
+                        <div class="text-red">※必須項目です。</div>
+                        <input type="radio" name="season" value="春" {{ old('season') == '春' ? 'checked' : '' }}>春　
+                        <input type="radio" name="season" value="夏" {{ old('season') == '夏' ? 'checked' : '' }}>夏　
+                        <input type="radio" name="season" value="秋" {{ old('season') == '秋' ? 'checked' : '' }}>秋　
+                        <input type="radio" name="season" value="冬" {{ old('season') == '冬' ? 'checked' : '' }}>冬　
+                        <input type="radio" name="season" value="通年" {{ old('season') == '通年' ? 'checked' : '' }}>通年　
+                    </div>
 
-                <div class="form-group">
-                    <label for="price">価格</label>
-                    <input type="number" class="form-control" id="price" name="price" value="{{$memo->price}}">
-                </div>
+                    <div class="form-group">
+                        <label for="brand">ブランド</label>
+                        <input type="text" class="form-control" id="brand" name="brand" value="{{$memo->brand}}">
+                    </div>
 
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">更新</button>
-                </div>
+                    <div class="form-group">
+                        <label for="price">価格</label>
+                        <input type="number" class="form-control" id="price" name="price" value="{{$memo->price}}">
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">更新</button>
+                    </div>
             </form>
         </div>
     </div>
