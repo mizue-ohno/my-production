@@ -46,7 +46,8 @@ class ItemController extends Controller
         }
 
         // アイテムリストをItemテーブルから取得（ログインユーザーが登録したアイテムのみ表示）
-        $items = $query->where('user_id', "=" , $user->user_id)->latest()->get();
+        $auth = auth()->user()->id;
+        $items = $query->where('user_id', "=" , $user)->latest()->get();
 
         // アイテムリストを表示する
         return view('item.index', compact('items', 'keyword', 'type', 'season', 'color' , 'user'));
