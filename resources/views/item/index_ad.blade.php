@@ -100,6 +100,7 @@
                             <h7>着用シーズン：{{ $item->season }}</h7><br>
                             <h7>購入日：{{ $item->buy_date }}</h7><br>
                             <p class="card-text">{{ $item->detail }}</p><br>
+                            <h7>登録者：@if ($item->user){{ $item->user_id->name }}</h7>
                             <a href="{{ route('item_ad.edit', ['id' => $item->id]) }}" class="btn btn-primary">編集</a>
                         </div>
                     </div>

@@ -244,19 +244,19 @@ return [
             'text' => '登録ユーザーリスト',
             'url'  => 'users',
             'icon' => 'fas fa-user',
-            'can' =>'admin',
+            'can' => 'admin',
         ],
         [
             'text' => '(管理)アイテムリスト',
             'url'  => 'items/admin',
             'icon' => 'fas fa-tshirt',
-            'can' =>'admin',
+            'can' => 'admin',
         ],
         [
             'text' => '(管理)欲しいものリスト',
             'url'  => 'memos/admin',
             'icon' => 'fas fa-heart',
-            'can' =>'admin',
+            'can' => 'admin',
         ],
 
 
