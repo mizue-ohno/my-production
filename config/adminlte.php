@@ -249,7 +249,7 @@ return [
         [
             'text' => '(管理)アイテムリスト',
             'url'  => 'items/admin',
-            'icon' => 'far fa-tshirt',
+            'icon' => 'fas fa-socks',
             'can' => 'admin',
         ],
         [
