@@ -1,11 +1,10 @@
 /* indexファイルのCSS */
 
-.item_search label{background-color: blue;
+.item_search label{
 
 }
 
 .search{
-    background-color: brown;
 }
 
 .card-text{
@@ -24,3 +23,10 @@
 
 }
 
+.card col-sm-3 col-xs-12{
+
+}
+
+.card col-sm-3 col-xs-12 img{
+    
+}
