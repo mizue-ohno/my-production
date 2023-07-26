@@ -19,7 +19,10 @@
 
 
 .card-body .btn btn-primary{
-    background-color: aquamarine;
+    margin: 20px auto;
+    display: block;
+    padding: 10px 80px;
+    margin-top: auto;
 
 }
 
