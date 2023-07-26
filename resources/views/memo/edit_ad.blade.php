@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', '管理者：ほしいものリスト編集')
+@section('title', '管理者：ほしいもの編集')
 
 @section('content_header')
-<h1>管理者ページ：ほしいものリスト編集</h1>
+<h1>管理者ページ：ほしいもの編集</h1>
 @stop
 
 @section('content')
@@ -62,16 +62,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="season">着用シーズン</label>
+                    <label for="season">着用シーズン</label><br>
                     <div class="text-red">※必須項目です。</div>
-                    <select class="form-select d-block" type="number" id="season" name="season" aria-label="Default select example">
-                        <option selected>選択してください</option>
-                        <option value="春" @if($memo->type == "春") selected @endif>春</option>
-                        <option value="夏" @if($memo->type == "夏") selected @endif>夏</option>
-                        <option value="秋" @if($memo->type == "秋") selected @endif>秋</option>
-                        <option value="冬" @if($memo->type == "冬") selected @endif>冬</option>
-                        <option value="通年" @if($memo->type == "通年") selected @endif>通年</option>
-                    </select>
+                    <input type="radio" name="season" value="春" {{ old('season') == '春' ? 'checked' : '' }}>春　
+                    <input type="radio" name="season" value="夏" {{ old('season') == '夏' ? 'checked' : '' }}>夏　
+                    <input type="radio" name="season" value="秋" {{ old('season') == '秋' ? 'checked' : '' }}>秋　
+                    <input type="radio" name="season" value="冬" {{ old('season') == '冬' ? 'checked' : '' }}>冬　
+                    <input type="radio" name="season" value="通年" {{ old('season') == '通年' ? 'checked' : '' }}>通年　
                 </div>
 
                 <div class="form-group">
