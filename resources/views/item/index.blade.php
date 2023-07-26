@@ -96,10 +96,12 @@
                         <img src="{{asset('/image/noimage.png')}}" class="card-img-top"alt="...">
                         @endif
                         <div class="card-body">
+                        <div class="text">
                             <h5 class="card-title">カテゴリー：{{ $item->type }}</h5><br>
                             <h7>着用シーズン：{{ $item->season }}</h7><br>
                             <h7>購入日：{{ $item->buy_date }}</h7><br>
                             <p class="card-text">{{ $item->detail }}</p><br>
+                        </div>
                             <a href="{{ route('item.edit', ['id' => $item->id]) }}" class="btn btn-primary">編集</a>
                         </div>
                     </div>

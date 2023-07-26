@@ -47,10 +47,12 @@
                         @endif
 
                         <div class="card-body">
+                        <div class="text">
                             <h5 class="card-title">カテゴリー：{{ $memo->type }}</h5><br>
                             <h7>着用シーズン：{{ $memo->season }}</h7><br>
                             <h7>価格：{{ number_format($memo->price) }}</h7><br>
                             <p class="card-text">{{ $memo->detail }}</p><br>
+                        </div>
                             <a href="{{ route('memo.edit', ['id' => $memo->id]) }}" class="btn btn-primary">編集</a>
                         </div>
                     </div>
