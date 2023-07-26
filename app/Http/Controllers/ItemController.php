@@ -14,6 +14,9 @@ class ItemController extends Controller
      */
     public function index(Request $request)
     {
+        // ログインユーザーの情報を取得
+        $user = Auth::user()->id;
+
 
         $keyword = $request->input('keyword');
         $type = $request->input('type');
@@ -43,15 +46,12 @@ class ItemController extends Controller
             $query->where('color', "=", $color);
         }
 
-        // ログインユーザーの情報を取得
-        $user = Auth::user()->id;
 
         // アイテムリストをItemテーブルから取得（ログインユーザーが登録したアイテムのみ表示）
-        // $auth = auth()->user()->id;
         $items = $query->where('user_id', "=", $user)->latest()->get();
 
         // アイテムリストを表示する
-        return view('item.index', compact('items', 'keyword', 'type', 'season', 'color', 'user', 'auth'));
+        return view('item.index', compact('items', 'keyword', 'type', 'season', 'color', 'user'));
     }
 
     /**
