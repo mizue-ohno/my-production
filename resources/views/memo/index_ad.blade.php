@@ -4,6 +4,7 @@
 
 @section('content_header')
 <h1>管理者ページ：ほしいものリスト</h1>
+<h4>全ユーザーの登録したほしいものリストです</h3>
 @stop
 
 @section('content')
