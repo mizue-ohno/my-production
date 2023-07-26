@@ -112,7 +112,7 @@
 
     @section('css')
         <!-- Styles -->
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/index.css') }}" rel="stylesheet">
 
     @stop
     
